@@ -12,7 +12,6 @@ npm init -y
 ## Instalar o Express para gerenciar requisições, rotas e URL's
 ```
 npm i express
-
 ```
 
 ## Para utilizar o support a Typescript, é necessário instalar os seguintes pacotes
@@ -34,6 +33,10 @@ npx tsc --init
 ```
 npx tsc
 ```
+## Executar as migrations para criar as tabelas no Banco de Dados
+```
+npx typeorm migration:run -d dist/data-source.js
+```
 
 ## Executar o arquivo gerado com Node.js
 ```
@@ -48,5 +51,16 @@ npm install reflect-metadata --save
 ## Instalar o driver do banco de dados (Postgre neste caso)
 ```
 npm install pg --save
+```
+## Para que as migrations funcionem corretamente, adicionar no arquivo tsconfig.json:
+```
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true
+```
+
+## Criar a migrations que será utilizada para criar a tabela no Banco de Dados
+```
+npx typeorm migration:create src/migration/CreateUsersTable
 ```
 
