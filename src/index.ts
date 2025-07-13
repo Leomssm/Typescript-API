@@ -3,6 +3,9 @@ import express, { Request, Response } from 'express';
 const __PORT = 8080;
 const app = express();
 
+// Middleware para aceitar dados em formato JSON
+app.use(express.json());
+
 import UsersController from "./controllers/UsersController";
 
 //Criar as rotas
